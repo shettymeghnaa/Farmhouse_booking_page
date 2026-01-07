@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List - Grid Layout</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: auto;
+            padding: 2rem 1rem;
+        }
+
+        /* ---------- Filters ---------- */
+        .filters {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .filter-select {
+            padding: 0.5rem 1rem;
+        }
+
+        /* ---------- Grid ---------- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+        }
+
+        @media (max-width: 1200px) {
+            .product-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 900px) {
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 640px) {
+            .product-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ---------- Product Card ---------- */
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .product-image {
+            height: 200px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .product-info {
+            padding: 1.25rem;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-description {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.75rem;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 0.75rem;
+        }
+
+        .product-rating {
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .stars {
+            color: #f39c12;
+        }
+
+        .add-to-cart-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .add-to-cart-btn:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Our Products</h1>
+    <p>Discover our amazing collection</p>
+</header>
+
+<div class="container">
+
+    <div class="filters">
+        <div>Showing 8 products</div>
+        <div class="filter-group">
+            <select class="filter-select">
+                <option>Sort by: Featured</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+            </select>
+            <select class="filter-select">
+                <option>All Categories</option>
+                <option>Electronics</option>
+                <option>Accessories</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="product-grid">
+
+        <!-- Product 1 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR2lEMkGQ46E6ojUmifv-dKu8REnajrBmlihC3JdpWyVmAi4sTOxmC3fq5-s7MeQRx7d0W6YnFRi98_Vci3JdMY9CqT8XK2ks3BCp4S_rClw_ogyjlNpU5p1qXR">
+            </div>
+            <div class="product-info">
+                <div class="product-title">Premium Smartphone</div>
+                <div class="product-description">Latest technology with advanced camera.</div>
+                <div class="product-rating"><span class="stars">★★★★★</span> (4.8)</div>
+                <div class="product-price">$599.99</div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://jarrods.tech/wp-content/uploads/2024/11/lenovo-loq-15-2024-gaming-laptop-1024x661.jpg">
+            </div>
+            <div class="product-info">
+                <div class="product-title">Gaming Laptop</div>
+                <div class="product-description">High-performance laptop.</div>
+                <div class="product-rating"><span class="stars">★★★★☆</span> (4.6)</div>
+                <div class="product-price">$1299.99</div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://shopatsc.com/cdn/shop/files/CH520_A__2500x2500_3981f43e-bf07-4246-98fd-42a92f3c33e8.jpg">
+            </div>
+            <div class="product-info">
+                <div class="product-title">Wireless Headphones</div>
+                <div class="product-description">Noise cancelling headphones.</div>
+                <div class="product-rating"><span class="stars">★★★★★</span> (4.9)</div>
+                <div class="product-price">$199.99</div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://www.mytrendyphone.eu/images/DC402-AF-4K-Kids-48MP-Digital-Camera-Auto-Focus-16X-Digital-Zoom-Vlogging-Camera-for-Teens-Light-PinkNone-25032024-00-p.webp">
+            </div>
+            <div class="product-info">
+                <div class="product-title">Digital Camera</div>
+                <div class="product-description">Professional photography camera.</div>
+                <div class="product-rating"><span class="stars">★★★★☆</span> (4.7)</div>
+                <div class="product-price">$899.99</div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://www.backmarket.com/cdn-cgi/image/format%3Dauto%2Cquality%3D75%2Cwidth%3D260/https://d2e6ccujb3mkqf.cloudfront.net/0c2ec741-864c-4c33-ab35-e931110ab7d2-1_c64a0916-06bc-432c-82be-b14b15027c88.jpg">
+            </div>
+            <div class="product-info">
+                <div class="product-title">Smart Watch</div>
+                <div class="product-description">Fitness and notifications.</div>
+                <div class="product-rating"><span class="stars">★★★★★</span> (4.5)</div>
+                <div class="product-price">$299.99</div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card">
+            <div class="product-image"><img src="https://alogic.in/cdn/shop/files/ClarityMax32_UHD4KMonitorwith65WPowerDelivery_v1_1.webp?v=1723102737&width=2048"></div>
+            <div class="product-info">
+                <div class="product-title">4K Monitor</div>
+                <div class="product-description">Ultra HD display.</div>
+                <div class="product-rating"><span class="stars">★★★★☆</span> (4.4)</div>
+                <div class="product-price">$499.99</div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="product-card">
+            <div class="product-image"><img src="https://alogic.in/cdn/shop/files/EchelonWirelessMouse_Mac_1_v1.webp?v=1748336526&width=2048"></div>
+            <div class="product-info">
+                <div class="product-title">Wireless Mouse</div>
+                <div class="product-description">Ergonomic design.</div>
+                <div class="product-rating"><span class="stars">★★★★★</span> (4.3)</div>
+                <div class="product-price">$49.99</div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="product-card">
+            <div class="product-image"><img src="https://keychron.com.au/cdn/shop/files/Keychron-B1-Pro-Wireless-Keyboard-Retro-Blue-1.jpg?v=1752142589&width=1214"></div>
+            <div class="product-info">
+                <div class="product-title">Mechanical Keyboard</div>
+                <div class="product-description">RGB backlit keys.</div>
+                <div class="product-rating"><span class="stars">★★★★☆</span> (4.6)</div>
+                <div class="product-price">$129.99</div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
